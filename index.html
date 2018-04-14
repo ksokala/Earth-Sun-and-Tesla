@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="earth" src="https://cdn.glitch.com/7e3f16ea-86c8-4295-9fbc-5474016c6522%2F0e8f9008-c2cd-471c-920c-128e98c2c3d9_aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAzMi82NzQvb3JpZ2luYWwvRmxhdF9lYXJ0aC5qcGc%3D.jpg?1523200228790">
+        <img id="sun" src="https://cdn.glitch.com/7e3f16ea-86c8-4295-9fbc-5474016c6522%2Fimages.jpg?1523200194836">
+        <img id="galaxy" src="https://cdn.glitch.com/7e3f16ea-86c8-4295-9fbc-5474016c6522%2F0e8f9008-c2cd-471c-920c-128e98c2c3d9_eso0932a.jpg?1523200099656">
+      </a-assets>
+<!-- Sun orbit -->
+      <a-entity 
+        position="0 1 -4">
+        <a-entity 
+           geometry="primitive: sphere; radius: 0.25" 
+           material="src: #earth"
+           position="0 0 2"
+           shadow>  
+          <a-animation attribute="rotation" dur="5000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+        <a-animation attribute="rotation" dur="50000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+<!-- Earth orbit -->
+        <a-entity 
+          position="0 0 2">
+          <a-entity 
+          position="0 0 0.5">
+            <a-entity gltf-model="url(https://cdn.glitch.com/0e8f9008-c2cd-471c-920c-128e98c2c3d9%2Fscene.gltf?1520453545410)"
+            rotation="-15 -90 0"
+            scale=".05 .05 .05">
+            
+            </a-entity>
+          </a-entity>
+          <a-animation attribute="rotation" dur="5000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+          <a-sound src="src: url(https://ia800502.us.archive.org/17/items/LifeOnMars_934/31LifeOnMars.mp3)"     autoplay="true"></a-sound>
+      </a-entity>
+
+    </a-entity>
+      <a-entity 
+         geometry="primitive: sphere; radius: 1" 
+         material="src: #sun; shader:flat"
+         position="0 0 -4"
+         rotation="-0 0 0" 
+         shadow>
+        <a-animation attribute="rotation" dur="10000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+        <a-entity light="type: point; intensity: 1; distance: 50; decay: 2"
+            position="0 0 0"></a-entity>
+      </a-entity>      
+      <a-sky src="#galaxy"></a-sky>
+    </a-scene>
+  </body>
+</html>
