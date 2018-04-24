@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Hello, WebVR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <img id="earth" src="img/earth.jpg">
-        <img id="sun" src="img/sun.jpg">
-        <img id="galaxy" src="img/galaxy.jpg">
-      </a-assets>
-<!-- Sun orbit -->
-      <a-entity 
-        position="0 1 -4">
-        <a-entity 
-           geometry="primitive: sphere; radius: 0.25" 
-           material="src: #earth"
-           position="0 0 2"
-           shadow>  
-          <a-animation attribute="rotation" dur="5000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
-        </a-entity>
-        <a-animation attribute="rotation" dur="50000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
-<!-- Earth orbit -->
-        <a-entity 
-          position="0 0 2">
-          <a-entity 
-          position="0 0 0.5">
-            <a-entity gltf-model="url(https://cdn.glitch.com/0e8f9008-c2cd-471c-920c-128e98c2c3d9%2Fscene.gltf?1520453545410)"
-            rotation="-15 -90 0"
-            scale=".05 .05 .05">
-            
-            </a-entity>
-          </a-entity>
-          <a-animation attribute="rotation" dur="5000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
-          <a-sound src="src: url(https://ia800502.us.archive.org/17/items/LifeOnMars_934/31LifeOnMars.mp3)"     autoplay="true"></a-sound>
-      </a-entity>
+</head>
 
-    </a-entity>
-      <a-entity 
-         geometry="primitive: sphere; radius: 1" 
-         material="src: #sun; shader:flat"
-         position="0 0 -4"
-         rotation="-0 0 0" 
-         shadow>
-        <a-animation attribute="rotation" dur="10000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
-        <a-entity light="type: point; intensity: 1; distance: 50; decay: 2"
-            position="0 0 0"></a-entity>
-      </a-entity>      
-      <a-sky src="#galaxy"></a-sky>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="earth" src="img/earth.jpg">
+            <img id="sun" src="img/sun.jpg">
+            <img id="galaxy" src="img/galaxy.jpg">
+        </a-assets>
+        <!-- Sun orbit -->
+        <a-entity position="0 1 -4">
+            <a-entity geometry="primitive: sphere; radius: 0.25" material="src: #earth" position="0 0 2" shadow>
+                <a-animation attribute="rotation" dur="5000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-animation attribute="rotation" dur="50000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+            <!-- Earth orbit -->
+            <a-entity position="0 0 2">
+                <a-entity position="0 0 0.5">
+                    <a-entity gltf-model="url(https://cdn.glitch.com/0e8f9008-c2cd-471c-920c-128e98c2c3d9%2Fscene.gltf?1520453545410)" rotation="-5 -270 0" scale=".05 .05 .05">
+
+                    </a-entity>
+                </a-entity>
+                <a-animation attribute="rotation" dur="5000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+                <a-sound src="src: url(https://ia800502.us.archive.org/17/items/LifeOnMars_934/31LifeOnMars.mp3)" autoplay="true"></a-sound>
+            </a-entity>
+
+        </a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1" material="src: #sun; shader:flat" position="0 0 -4" rotation="-0 0 0" shadow>
+            <a-animation attribute="rotation" dur="10000" easing="linear" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+            <a-entity light="type: point; intensity: 1; distance: 50; decay: 2" position="0 0 0"></a-entity>
+        </a-entity>
+        <a-sky src="#galaxy"></a-sky>
     </a-scene>
-  </body>
+</body>
+
 </html>
